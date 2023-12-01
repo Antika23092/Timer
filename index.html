@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+           
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            background-color: rgb(67, 105, 193);
+            margin: auto;
+
+        }
+        #start:hover{
+            width: 62px;
+            height: 62px;
+        }
+        #stop:hover{
+            width: 62px;
+            height: 62px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="timer" style="color: white; margin-top: 60px; font-size: 40px; text-align: center;">00:00:00</h1>
+        <button id="start" style="margin-left: 35px; border-radius: 100%; padding: 15px; border: 0px; background-color: rgb(83, 227, 83); color: aliceblue;" onclick="watch()">Start</button>
+        <button id="stop" style="border-radius: 100%; padding: 15px; border: 0px; background-color: red; margin-left: 10px; color: aliceblue;" onclick="stop()">Stop</button>
+
+
+    </div>
+
+    <script>
+
+ 
+    document.getElementById("timer");
+
+        var hours=0;
+var minute=0;
+var second=0;
+number=null;
+function timerWatch(){
+   second++;
+   if(second==60){
+    second=0;
+    minute++;
+    if(minute==60){
+        minute=0;
+        hours++;
+
+    }
+   }
+    console.log(hours +" " + minute+" "+ second);
+    document.getElementById("timer").innerHTML=hours +":" + minute+":"+ second;
+
+}
+function watch(){
+    if(number!==null){
+        clearInterval(number);
+    }
+    number=setInterval(timerWatch,1000);
+}
+function stop(){
+    
+    clearInterval(number);
+}
+
+// watch();
+    </script>
+</body>
+</html>
